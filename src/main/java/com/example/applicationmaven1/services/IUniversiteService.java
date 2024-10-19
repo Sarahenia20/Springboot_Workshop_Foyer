@@ -1,9 +1,10 @@
 package com.example.applicationmaven1.services;
 
 import com.example.applicationmaven1.Entities.Universite;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface IUniversiteService {
     Universite addUniversite(Universite universite);
 

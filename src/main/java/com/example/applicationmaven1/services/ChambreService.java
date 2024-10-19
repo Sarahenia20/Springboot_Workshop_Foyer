@@ -3,6 +3,7 @@ package com.example.applicationmaven1.services;
 
 import com.example.applicationmaven1.Entities.Chambre;
 import com.example.applicationmaven1.repositories.ChambreRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -38,4 +39,13 @@ public class ChambreService implements IChambreService{
     public List<Chambre> getAllChambre() {
         return chambreRepository.findAll();
     }
+
+    public void deleteChambreById(long idChambre) {
+        if (!chambreRepository.existsById(idChambre)) {
+            throw new EntityNotFoundException("Chambre not found with id: " + idChambre);
+        }
+        chambreRepository.deleteById(idChambre);
+    }
+
+
 }
