@@ -21,25 +21,25 @@ import java.util.List;
 public class FoyerController {
     IFoyerService foyerService;
 
-    @PostMapping("addfoyer")
+    @PostMapping("add")
     @Operation(summary = "Add a new Foyer", description = "Creates a new Foyer and returns the created object.")
     public Foyer ajoutFoyer(@RequestBody Foyer foyer) {
         return foyerService.addFoyer(foyer);
     }
 
-    @GetMapping("getfoyer/{idFoyer}")
+    @GetMapping("get/{idFoyer}")
     @Operation(summary = "Get Foyer by ID", description = "Retrieves a Foyer by its ID.")
     public Foyer getFoyer(@PathVariable("idFoyer") long idFoyer) {
         return foyerService.getFoyerById(idFoyer);
     }
 
-    @DeleteMapping("deletefoyer")
+    @DeleteMapping("delete")
     @Operation(summary = "Delete a Foyer", description = "Deletes a Foyer based on the provided Foyer object.")
     public void deleteFoyer(@RequestBody Foyer foyer) {
         foyerService.deleteFoyer(foyer);
     }
 
-    @PutMapping("updatefoyer")
+    @PutMapping("update")
     @Operation(summary = "Update a Foyer", description = "Updates an existing Foyer and returns the updated object.")
     public Foyer modifierFoyer(@RequestBody Foyer foyer) {
         return foyerService.updateFoyer(foyer);
