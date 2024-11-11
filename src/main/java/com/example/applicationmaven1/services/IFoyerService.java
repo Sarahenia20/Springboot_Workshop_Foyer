@@ -15,4 +15,5 @@ public interface IFoyerService {
     void deleteFoyer(Foyer foyer);
 
     List<Foyer> getAllFoyer();
+    void assignBlocToFoyer(Long idBloc, Long idFoyer);
 }

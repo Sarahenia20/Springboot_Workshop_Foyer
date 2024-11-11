@@ -19,4 +19,5 @@ public interface IUniversiteService {
 
     Universite affecterFoyerToUniversite(Universite universite);
     Universite affecterFoyerToUni(Long idUniversite, Foyer foyer);
+    Universite desaffecterFoyerFromUniversite(Long universiteId);
 }

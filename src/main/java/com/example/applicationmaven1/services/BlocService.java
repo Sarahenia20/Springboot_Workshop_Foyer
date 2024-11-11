@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 @AllArgsConstructor
-public class BlocService implements IBlocService{
+public class BlocService implements IBlocService {
 
     BlocRepository blocRepository;
 
@@ -36,5 +36,10 @@ public class BlocService implements IBlocService{
     @Override
     public List<Bloc> getAllBloc() {
         return blocRepository.findAll();
+    }
+
+    public Bloc ajouterBlocEtChambresAssocie(Bloc bloc) {
+        // Save the Bloc along with its Chambres using cascading
+        return blocRepository.save(bloc);
     }
 }

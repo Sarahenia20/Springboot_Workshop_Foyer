@@ -68,4 +68,8 @@ public class UniversiteController {
         Universite updatedUniversite = universiteService.affecterFoyerToUni(idUniversite, foyer);
         return ResponseEntity.ok(updatedUniversite);
     }
+    @PostMapping("/desaffecterFoyer")
+    public Universite desaffecterFoyerFromUniversite(@RequestParam Long universiteId) {
+        return universiteService.desaffecterFoyerFromUniversite(universiteId);
+    }
 }

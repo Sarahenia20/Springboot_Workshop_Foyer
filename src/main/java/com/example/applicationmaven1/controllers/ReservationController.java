@@ -50,4 +50,22 @@ public class ReservationController {
     public List<Reservation> getAllReservation() {
         return reservationService.getAllReservation();
     }
+    @PostMapping("/assignEtudiant")
+    public Reservation assignEtudiantToReservation(
+            @RequestParam Long idReservation,
+            @RequestParam Long idEtudiant) {
+        return reservationService.affecterEtudiantToReservation(idReservation, idEtudiant);
+    }
+    // Endpoint to remove an Etudiant from a Reservation
+    @DeleteMapping("/removeEtudiant")
+    public String removeEtudiantFromReservation(
+            @RequestParam Long idReservation,
+            @RequestParam Long idEtudiant) {
+        try {
+            reservationService.desaffecterEtudiantFromReservation(idReservation, idEtudiant);
+            return "Etudiant successfully removed from Reservation.";
+        } catch (RuntimeException e) {
+            return "Error: " + e.getMessage();
+        }
+    }
 }

@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -61,5 +62,22 @@ public class UniversiteService implements IUniversiteService {
         return universite;
     }
 
+    @Override
+    public Universite desaffecterFoyerFromUniversite(Long universiteId) {
+        // Find the university by ID
+        Optional<Universite> universiteOpt = universiteRepository.findById(universiteId);
+        if (universiteOpt.isEmpty()) {
+            throw new RuntimeException("Université not found");
+        }
 
+        Universite universite = universiteOpt.get();
+
+        // Check if the university has an assigned foyer
+        if (universite.getFoyer() != null) {
+            universite.setFoyer(null); // Unassign the foyer
+            universiteRepository.save(universite);
+        }
+
+        return universite;
+    }
 }

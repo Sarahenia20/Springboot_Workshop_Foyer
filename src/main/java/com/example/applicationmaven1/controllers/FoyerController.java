@@ -50,4 +50,14 @@ public class FoyerController {
     public List<Foyer> getAllFoyer() {
         return foyerService.getAllFoyer();
     }
+
+    @PostMapping("/assignBloc")
+    public String assignBlocToFoyer(@RequestParam Long idBloc, @RequestParam Long idFoyer) {
+        try {
+            foyerService.assignBlocToFoyer(idBloc, idFoyer);
+            return "Bloc successfully assigned to Foyer.";
+        } catch (RuntimeException e) {
+            return "Error: " + e.getMessage();
+        }
+    }
 }
