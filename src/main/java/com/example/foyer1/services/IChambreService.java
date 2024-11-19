@@ -1,25 +1,23 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
 
-import com.example.foyer1.entites.chambre;
-import com.example.foyer1.entites.typeChambre;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.example.foyer1.Entities.Chambre;
+import com.example.foyer1.Entities.TypeChambre;
 
 import java.util.List;
 
 
 
 public interface IChambreService {
-    chambre addChambre(chambre chambre);
+    Chambre addChambre(Chambre chambre);
 
-    chambre getChambreById(long idChambre);
+    Chambre getChambreById(long idChambre);
 
-    chambre updateChambre(chambre chambre);
+    Chambre updateChambre(Chambre chambre);
 
-    void deleteChambre(chambre chambre);
+    void deleteChambre(Chambre chambre);
 
-    List<chambre> getAllChambre();
-    List<chambre> getChambreByType( typeChambre type);
-    public chambre findByNumeroChambre(Long numeroChambre);
+    List<Chambre> getAllChambre();
+    List<Chambre> getChambreByType( TypeChambre type);
+    public Chambre findByNumeroChambre(Long numeroChambre);
 }

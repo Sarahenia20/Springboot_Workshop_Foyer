@@ -1,12 +1,12 @@
-package com.example.foyer1.repositories;
+package com.example.foyer1.Repositories;
 
-import com.example.foyer1.entites.bloc;
-import com.example.foyer1.entites.chambre;
+import com.example.foyer1.Entities.Bloc;
+import com.example.foyer1.Entities.Chambre;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface BlocRepository extends JpaRepository<bloc, Long> {
+public interface BlocRepository extends JpaRepository<Bloc, Long> {
 
-    List<bloc> findByFoyerUniversiteIdUniversite(Long idUniversite);
+    List<Bloc> findByFoyerUniversiteIdUniversite(Long idUniversite);
 }

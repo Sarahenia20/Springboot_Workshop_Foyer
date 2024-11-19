@@ -1,6 +1,6 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
-import com.example.foyer1.entites.Reservation;
+import com.example.foyer1.Entities.Reservation;
 
 import java.util.List;
 

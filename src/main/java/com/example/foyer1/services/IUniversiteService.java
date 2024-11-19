@@ -1,22 +1,23 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
-import com.example.foyer1.entites.foyer;
-import com.example.foyer1.entites.universite;
+import com.example.foyer1.Entities.Universite;
+import com.example.foyer1.Entities.Foyer;
+import com.example.foyer1.Entities.Universite;
 
 import java.util.List;
 
 public interface IUniversiteService {
-    universite addUniversite(universite universite);
+    Universite addUniversite(Universite universite);
 
-    universite getUniversiteById(long idUniversite);
+    Universite getUniversiteById(long idUniversite);
 
-    universite updateUniversite(universite universite);
+    Universite updateUniversite(Universite universite);
 
-    void deleteUniversite(universite universite);
+    void deleteUniversite(Universite universite);
 
-    List<universite> getAllUniversite();
-    universite affecterFoyerToUniversite(universite universite);
+    List<Universite> getAllUniversite();
+    Universite affecterFoyerToUniversite(Universite universite);
 
-    universite affecterFoyerToUniversite(Long idUniversite, foyer foyer);
-    universite DesaffecterFoyerFromUniversite(Long UniversiteId) ;
+    Universite affecterFoyerToUniversite(Long idUniversite, Foyer foyer);
+    Universite DesaffecterFoyerFromUniversite(Long UniversiteId) ;
 }

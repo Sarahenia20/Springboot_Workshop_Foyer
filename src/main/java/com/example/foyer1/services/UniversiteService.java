@@ -1,9 +1,9 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
 
-import com.example.foyer1.entites.foyer;
-import com.example.foyer1.entites.universite;
-import com.example.foyer1.repositories.UniversiteRepository;
+import com.example.foyer1.Entities.Foyer;
+import com.example.foyer1.Entities.Universite;
+import com.example.foyer1.Repositories.UniversiteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,34 +16,34 @@ public class UniversiteService implements IUniversiteService{
 
 
     @Override
-    public universite addUniversite(universite universite) {
+    public Universite addUniversite(Universite universite) {
         return universiteRepository.save(universite);
     }
 
     @Override
-    public universite getUniversiteById(long idUniversite) {
+    public Universite getUniversiteById(long idUniversite) {
         return universiteRepository.findById(idUniversite).get();
     }
 
     @Override
-    public universite updateUniversite(universite universite) {
+    public Universite updateUniversite(Universite universite) {
         return universiteRepository.save(universite);
     }
 
     @Override
-    public void deleteUniversite(universite universite) {
+    public void deleteUniversite(Universite universite) {
         universiteRepository.delete(universite);
     }
 
     @Override
-    public List<universite> getAllUniversite() {
+    public List<Universite> getAllUniversite() {
         return universiteRepository.findAll();
     }
     @Override
-    public universite affecterFoyerToUniversite(universite universite) {
+    public Universite affecterFoyerToUniversite(Universite universite) {
         // Vérifier si l'université a un foyer associé
         if (universite.getFoyer() != null) {
-            foyer foyerAssocie = universite.getFoyer();
+            Foyer foyerAssocie = universite.getFoyer();
 
             // Sauvegarder l'université avec son foyer (grâce à CascadeType.ALL)
             universite.setFoyer(foyerAssocie);
@@ -52,9 +52,9 @@ public class UniversiteService implements IUniversiteService{
     }
 
     @Override
-    public universite affecterFoyerToUniversite(Long idUniversite, foyer foyer) {
+    public Universite affecterFoyerToUniversite(Long idUniversite, Foyer foyer) {
         // Récupérer l'université par son ID
-        universite universiteExistante = universiteRepository.findById(idUniversite).orElse(null);
+        Universite universiteExistante = universiteRepository.findById(idUniversite).orElse(null);
 
         if (universiteExistante != null) {
             // Affecter le foyer à l'université
@@ -68,8 +68,8 @@ public class UniversiteService implements IUniversiteService{
         return null;
     }
     @Override
-    public universite DesaffecterFoyerFromUniversite(Long universiteId){
-        universite universite = universiteRepository.findById(universiteId).get();
+    public Universite DesaffecterFoyerFromUniversite(Long universiteId){
+        Universite universite = universiteRepository.findById(universiteId).get();
         universite.setFoyer(null);
         universiteRepository.save(universite);
         return universite;

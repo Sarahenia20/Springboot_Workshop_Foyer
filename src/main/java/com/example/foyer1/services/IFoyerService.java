@@ -1,21 +1,21 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
 
 
-import com.example.foyer1.entites.foyer;
+import com.example.foyer1.Entities.Foyer;
 
 import java.util.List;
 
 public interface IFoyerService {
-    foyer addFoyer(foyer foyer);
+    Foyer addFoyer(Foyer foyer);
 
-    foyer getFoyerById(long idFoyer);
+    Foyer getFoyerById(long idFoyer);
 
-    foyer updateFoyer(foyer foyer);
+    Foyer updateFoyer(Foyer foyer);
 
-    void deleteFoyer(foyer foyer);
+    void deleteFoyer(Foyer foyer);
 
-    List<foyer> getAllFoyer();
+    List<Foyer> getAllFoyer();
 
     void assignBlocToFoyer( Long idBloc, Long idFoyer);
 }

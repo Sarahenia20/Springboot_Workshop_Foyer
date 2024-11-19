@@ -1,11 +1,11 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
 
 
-import com.example.foyer1.entites.bloc;
-import com.example.foyer1.entites.foyer;
-import com.example.foyer1.repositories.BlocRepository;
-import com.example.foyer1.repositories.FoyerRepository;
+import com.example.foyer1.Entities.Bloc;
+import com.example.foyer1.Entities.Foyer;
+import com.example.foyer1.Repositories.BlocRepository;
+import com.example.foyer1.Repositories.FoyerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,33 +19,33 @@ public class FoyerService implements IFoyerService{
 
 
     @Override
-    public foyer addFoyer(foyer foyer) {
+    public Foyer addFoyer(Foyer foyer) {
         return foyerRepository.save(foyer);
     }
 
     @Override
-    public foyer getFoyerById(long idFoyer) {
+    public Foyer getFoyerById(long idFoyer) {
         return foyerRepository.findById(idFoyer).get();
     }
 
     @Override
-    public foyer updateFoyer(foyer foyer) {
+    public Foyer updateFoyer(Foyer foyer) {
         return foyerRepository.save(foyer);
     }
 
     @Override
-    public void deleteFoyer(foyer foyer) {
+    public void deleteFoyer(Foyer foyer) {
         foyerRepository.delete(foyer);
     }
 
     @Override
-    public List<foyer> getAllFoyer() {
+    public List<Foyer> getAllFoyer() {
         return foyerRepository.findAll();
     }
     @Override
     public void assignBlocToFoyer(Long idBloc, Long idFoyer) {
-        bloc bloc = blocRepository.findById(idBloc).get();
-        foyer foyer = foyerRepository.findById(idFoyer).get();
+        Bloc bloc = blocRepository.findById(idBloc).get();
+        Foyer foyer = foyerRepository.findById(idFoyer).get();
         bloc.setFoyer(foyer);
         blocRepository.save(bloc);
     }

@@ -1,8 +1,8 @@
-package com.example.foyer1.controllers;
+package com.example.foyer1.Controllers;
 
-import com.example.foyer1.entites.foyer;
-import com.example.foyer1.services.IEtudiantService;
-import com.example.foyer1.services.IFoyerService;
+import com.example.foyer1.Entities.Foyer;
+import com.example.foyer1.Services.IEtudiantService;
+import com.example.foyer1.Services.IFoyerService;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -19,27 +19,27 @@ import java.util.List;
 public class FoyerController {
     IFoyerService foyerService;
     @PostMapping("add")
-    public foyer ajoutFoyer(@RequestBody foyer foyer) {
+    public Foyer ajoutFoyer(@RequestBody Foyer foyer) {
         return foyerService.addFoyer(foyer);
     }
 
     @GetMapping("get/{idFoyer}")
-    public foyer getFoyer(@PathVariable("idFoyer") long idFoyer) {
+    public Foyer getFoyer(@PathVariable("idFoyer") long idFoyer) {
         return foyerService.getFoyerById(idFoyer);
     }
 
     @DeleteMapping("delete")
-    public void deleteFoyer(@RequestBody foyer foyer) {
+    public void deleteFoyer(@RequestBody Foyer foyer) {
         foyerService.deleteFoyer(foyer);
     }
 
     @PutMapping("update")
-    public foyer modifierFoyer(@RequestBody foyer foyer) {
+    public Foyer modifierFoyer(@RequestBody Foyer foyer) {
         return foyerService.updateFoyer(foyer);
     }
 
     @GetMapping("getall")
-    public List<foyer> getAllFoyer() {
+    public List<Foyer> getAllFoyer() {
         return foyerService.getAllFoyer();
     }
 

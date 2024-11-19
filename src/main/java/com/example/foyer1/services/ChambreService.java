@@ -1,8 +1,8 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
-import com.example.foyer1.entites.chambre;
-import com.example.foyer1.entites.typeChambre;
-import com.example.foyer1.repositories.ChambreRepository;
+import com.example.foyer1.Entities.Chambre;
+import com.example.foyer1.Entities.TypeChambre;
+import com.example.foyer1.Repositories.ChambreRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,37 +15,37 @@ public class ChambreService implements IChambreService
 
 
     @Override
-    public chambre addChambre(chambre chambre) {
+    public Chambre addChambre(Chambre chambre) {
         return chambreRepository.save(chambre);
     }
 
     @Override
-    public chambre getChambreById(long idChambre) {
+    public Chambre getChambreById(long idChambre) {
         return chambreRepository.findById(idChambre).get();
     }
 
     @Override
-    public chambre updateChambre(chambre chambre) {
+    public Chambre updateChambre(Chambre chambre) {
         return chambreRepository.save(chambre);
     }
 
     @Override
-    public void deleteChambre(chambre chambre) {
+    public void deleteChambre(Chambre chambre) {
         chambreRepository.delete(chambre);
     }
 
     @Override
-    public List<chambre> getAllChambre() {
+    public List<Chambre> getAllChambre() {
         return chambreRepository.findAll();
     }
 
 
 
-        public List<chambre> getChambreByType(typeChambre type) {
+        public List<Chambre> getChambreByType(TypeChambre type) {
             return chambreRepository.findAllByTypeC(type);
         }
     @Override
-    public chambre findByNumeroChambre(Long numeroChambre) {
+    public Chambre findByNumeroChambre(Long numeroChambre) {
         return chambreRepository.findChambreByNumeroChambre(numeroChambre);
     }
 }

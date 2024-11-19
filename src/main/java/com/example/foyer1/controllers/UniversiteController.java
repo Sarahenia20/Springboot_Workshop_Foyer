@@ -1,10 +1,10 @@
-package com.example.foyer1.controllers;
+package com.example.foyer1.Controllers;
 
-import com.example.foyer1.entites.etudiant;
-import com.example.foyer1.entites.foyer;
-import com.example.foyer1.entites.universite;
-import com.example.foyer1.services.IEtudiantService;
-import com.example.foyer1.services.IUniversiteService;
+import com.example.foyer1.Entities.Etudiant;
+import com.example.foyer1.Entities.Foyer;
+import com.example.foyer1.Entities.Universite;
+import com.example.foyer1.Services.IEtudiantService;
+import com.example.foyer1.Services.IUniversiteService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -25,43 +25,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class UniversiteController {
     IUniversiteService universiteService;
     @PostMapping("add")
-    public universite ajoutUniversite(@RequestBody universite universite) {
+    public Universite ajoutUniversite(@RequestBody Universite universite) {
         return universiteService.addUniversite(universite);
     }
 
     @GetMapping("get/{idUniversite}")
-    public universite getUniversite(@PathVariable("idUniversite") long idUniversite) {
+    public Universite getUniversite(@PathVariable("idUniversite") long idUniversite) {
         return universiteService.getUniversiteById(idUniversite);
     }
 
     @DeleteMapping("delete")
-    public void deleteUniversite(@RequestBody universite universite) {
+    public void deleteUniversite(@RequestBody Universite universite) {
         universiteService.deleteUniversite(universite);
     }
 
     @PutMapping("update")
-    public universite modifierUniversite(@RequestBody universite universite) {
+    public Universite modifierUniversite(@RequestBody Universite universite) {
         return universiteService.updateUniversite(universite);
     }
 
     @GetMapping("getall")
-    public List<universite> getAllUniversite() {
+    public List<Universite> getAllUniversite() {
         return universiteService.getAllUniversite();
     }
 
     @PostMapping("affecterfoyeruniversite")
-    public universite affecterFoyerToUniversite(@RequestBody universite universite) {
+    public Universite affecterFoyerToUniversite(@RequestBody Universite universite) {
         return universiteService.affecterFoyerToUniversite(universite);
     }
 
     @PostMapping("affecterfoyer/{idUniversite}")
-    public universite affecterFoyerToUniversite(
+    public Universite affecterFoyerToUniversite(
             @PathVariable Long idUniversite,
-            @RequestBody foyer foyer) {
+            @RequestBody Foyer foyer) {
         return universiteService.affecterFoyerToUniversite(idUniversite, foyer);
     }
     @PutMapping("DesaffecterFoyerFromUniversite/{universiteId}")
-    public universite DesaffecterFoyerFromUniversite(@PathVariable("universiteId") Long universiteId) {
+    public Universite DesaffecterFoyerFromUniversite(@PathVariable("universiteId") Long universiteId) {
         universiteService.DesaffecterFoyerFromUniversite(universiteId);
         return universiteService.getUniversiteById(universiteId);
     }

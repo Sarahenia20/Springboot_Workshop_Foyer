@@ -1,7 +1,7 @@
-package com.example.foyer1.controllers;
+package com.example.foyer1.Controllers;
 
-import com.example.foyer1.entites.Reservation;
-import com.example.foyer1.services.IReservationService;
+import com.example.foyer1.Entities.Reservation;
+import com.example.foyer1.Services.IReservationService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

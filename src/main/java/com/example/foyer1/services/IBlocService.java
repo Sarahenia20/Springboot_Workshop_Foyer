@@ -1,24 +1,24 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
-import com.example.foyer1.entites.bloc;
-import com.example.foyer1.repositories.BlocRepository;
+import com.example.foyer1.Entities.Bloc;
+import com.example.foyer1.Repositories.BlocRepository;
 
 import java.util.List;
 
 public interface IBlocService {
-    bloc addBloc(bloc bloc);
+    Bloc addBloc(Bloc bloc);
 
-    bloc getBlocById(long idBloc);
+    Bloc getBlocById(long idBloc);
 
-    bloc updateBloc(bloc bloc);
+    Bloc updateBloc(Bloc bloc);
 
-    void deleteBloc(bloc bloc);
+    void deleteBloc(Bloc bloc);
 
-    List<bloc> getAllBloc();
-    bloc ajouterBlocEtChambresAssocie(bloc bloc);
+    List<Bloc> getAllBloc();
+    Bloc ajouterBlocEtChambresAssocie(Bloc bloc);
 
 
-    List<bloc> getBlocsByUniversiteId(Long idUniversite);
+    List<Bloc> getBlocsByUniversiteId(Long idUniversite);
 }
 
 

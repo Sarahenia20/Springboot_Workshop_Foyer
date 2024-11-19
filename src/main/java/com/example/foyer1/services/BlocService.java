@@ -1,10 +1,8 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
-import com.example.foyer1.entites.bloc;
-import com.example.foyer1.entites.bloc;
-import com.example.foyer1.entites.chambre;
-import com.example.foyer1.entites.foyer;
-import com.example.foyer1.repositories.BlocRepository;
+import com.example.foyer1.Entities.Bloc;
+import com.example.foyer1.Entities.Chambre;
+import com.example.foyer1.Repositories.BlocRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,44 +17,44 @@ public class BlocService implements IBlocService{
 
 
     @Override
-    public bloc addBloc(bloc bloc) {
+    public Bloc addBloc(Bloc bloc) {
         return blocRepository.save(bloc);
     }
 
     @Override
-    public bloc getBlocById(long idBloc) {
+    public Bloc getBlocById(long idBloc) {
         return blocRepository.findById(idBloc).get();
     }
 
     @Override
-    public bloc updateBloc(bloc bloc) {
+    public Bloc updateBloc(Bloc bloc) {
         return blocRepository.save(bloc);
     }
 
     @Override
-    public void deleteBloc(bloc bloc) { blocRepository.delete(bloc);
+    public void deleteBloc(Bloc bloc) { blocRepository.delete(bloc);
     }
 
     @Override
-    public List<bloc> getAllBloc() {
+    public List<Bloc> getAllBloc() {
         return blocRepository.findAll();
     }
 
 // ajouter un Bloc avec les chambres associées
 
     @Override
-    public bloc ajouterBlocEtChambresAssocie(bloc bloc) {
-        Set<chambre> chambres = bloc.getChambres();
+    public Bloc ajouterBlocEtChambresAssocie(Bloc bloc) {
+        Set<Chambre> chambres = bloc.getChambre();
 
         if (chambres != null && !chambres.isEmpty()) {
-            for (chambre chambre : chambres) {
+            for (Chambre chambre : chambres) {
                 chambre.setBloc(bloc);
             }
         }
   return blocRepository.save(bloc);
     }
 
-    public List<bloc> getBlocsByUniversiteId(Long idUniversite) {
+    public List<Bloc> getBlocsByUniversiteId(Long idUniversite) {
         return blocRepository.findByFoyerUniversiteIdUniversite(idUniversite);
     }
 

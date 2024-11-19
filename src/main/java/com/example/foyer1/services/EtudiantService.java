@@ -1,7 +1,7 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
-import com.example.foyer1.entites.etudiant;
-import com.example.foyer1.repositories.EtudiantRepository;
+import com.example.foyer1.Entities.Etudiant;
+import com.example.foyer1.Repositories.EtudiantRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,27 +13,27 @@ public class EtudiantService implements IEtudiantService{
 
 
     @Override
-    public etudiant addEtudiant(etudiant etudiant) {
+    public Etudiant addEtudiant(Etudiant etudiant) {
         return etudiantRepository.save(etudiant);
     }
 
     @Override
-    public etudiant getEtudiantById(long idEtudiant) {
+    public Etudiant getEtudiantById(long idEtudiant) {
         return etudiantRepository.findById(idEtudiant).get();
     }
 
     @Override
-    public etudiant updateEtudiant(etudiant etudiant) {
+    public Etudiant updateEtudiant(Etudiant etudiant) {
         return etudiantRepository.save(etudiant);
     }
 
     @Override
-    public void deleteEtudiant(etudiant etudiant) {
+    public void deleteEtudiant(Etudiant etudiant) {
         etudiantRepository.delete(etudiant);
     }
 
     @Override
-    public List<etudiant> getAllEtudiant() {
+    public List<Etudiant> getAllEtudiant() {
         return etudiantRepository.findAll();
     }
 }

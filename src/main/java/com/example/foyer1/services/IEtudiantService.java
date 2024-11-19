@@ -1,18 +1,18 @@
-package com.example.foyer1.services;
+package com.example.foyer1.Services;
 
 
-import com.example.foyer1.entites.etudiant;
+import com.example.foyer1.Entities.Etudiant;
 
 import java.util.List;
 
 public interface IEtudiantService {
-    etudiant addEtudiant(etudiant etudiant);
+    Etudiant addEtudiant(Etudiant etudiant);
 
-    etudiant getEtudiantById(long idEtudiant);
+    Etudiant getEtudiantById(long idEtudiant);
 
-    etudiant updateEtudiant(etudiant etudiant);
+    Etudiant updateEtudiant(Etudiant etudiant);
 
-    void deleteEtudiant(etudiant etudiant);
+    void deleteEtudiant(Etudiant etudiant);
 
-    List<etudiant> getAllEtudiant();
+    List<Etudiant> getAllEtudiant();
 }

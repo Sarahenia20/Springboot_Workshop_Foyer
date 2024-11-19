@@ -1,6 +1,6 @@
-package com.example.foyer1.controllers;
-import com.example.foyer1.entites.etudiant;
-import com.example.foyer1.services.IEtudiantService;
+package com.example.foyer1.Controllers;
+import com.example.foyer1.Entities.Etudiant;
+import com.example.foyer1.Services.IEtudiantService;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -17,27 +17,27 @@ import java.util.List;
 public class EtudiantController {
     IEtudiantService etudiantService;
     @PostMapping("adde")
-    public etudiant ajoutEtudiant(@RequestBody etudiant etudiant) {
+    public Etudiant ajoutEtudiant(@RequestBody Etudiant etudiant) {
         return etudiantService.addEtudiant(etudiant);
     }
 
     @GetMapping("get/{idEtudiant}")
-    public etudiant getEtudiant(@PathVariable("idEtudiant") long idEtudiant) {
+    public Etudiant getEtudiant(@PathVariable("idEtudiant") long idEtudiant) {
         return etudiantService.getEtudiantById(idEtudiant);
     }
 
     @DeleteMapping("delete")
-    public void deleteEtudiant(@RequestBody etudiant etudiant) {
+    public void deleteEtudiant(@RequestBody Etudiant etudiant) {
         etudiantService.deleteEtudiant(etudiant);
     }
 
     @PutMapping("update")
-    public etudiant modifierEtudiant(@RequestBody etudiant etudiant) {
+    public Etudiant modifierEtudiant(@RequestBody Etudiant etudiant) {
         return etudiantService.updateEtudiant(etudiant);
     }
 
     @GetMapping("getall")
-    public List<etudiant> getAllEtudiant() {
+    public List<Etudiant> getAllEtudiant() {
         return etudiantService.getAllEtudiant();
     }
 }
